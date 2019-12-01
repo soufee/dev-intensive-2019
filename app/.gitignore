@@ -1,29 +1,7 @@
+# Built application files
+build/
+libs/
+.idea/
 *.iml
-.idea
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-# Gradle files
-.gradle/
-
-# User-specific configurations
-*.iml
-
-# OS-specific files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+src/test/
+src/androidTest
