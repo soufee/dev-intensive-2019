@@ -24,25 +24,27 @@ object Utils {
 
     }
 
-    @SuppressLint("DefaultLocale")
     fun transliteration(payload: String, divider: String = " "): String {
-        var result = ""
-        val names = payload.trim().split(" ")
-        if (names.size > 0) {
-            for (i in 0..names.size-1) {
-                var engWord = ""
-                val word = names[i]
-                word.forEach { c ->
-                    engWord += transliterationMap[c.toLowerCase()] ?: c
-                }
-                result += engWord.capitalize()
-                if (i != names.size - 1) result += divider
-            }
-        }
-        return result
+        val builder = StringBuilder()
+
+        for (char in payload.trim())
+            builder.append(getTranslChar(char))
+
+        return builder.toString().replace(" ", divider)
     }
 
-    fun toInitials(firstName: String?, lastName: String?): String? {
+    @SuppressLint("DefaultLocale")
+    private fun getTranslChar(char: Char): String {
+        val transl  = transliterationMap[char.toLowerCase()] ?: char.toString()
+
+        return if (char.isUpperCase() && transl.isNotEmpty())
+            transl.capitalize()
+        else transl
+
+    }
+
+
+        fun toInitials(firstName: String?, lastName: String?): String? {
         val name = firstName.orEmpty().trim().getOrNull(0)?.toUpperCase()
         val surname = lastName.orEmpty().trim().getOrNull(0)?.toUpperCase()
         val firstInit = name?.toString() ?: ""
