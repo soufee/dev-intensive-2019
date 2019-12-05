@@ -1,9 +1,9 @@
+package ru.skillbranch.devintensive.extensions
 
-
-import TimeUnits.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.abs
+import ru.skillbranch.devintensive.extensions.TimeUnits.*
 
 fun Date.format(pattern: String = "HH:mm:ss dd.MM.yy"): String {
     val dateFormat = SimpleDateFormat(pattern, Locale("ru"))

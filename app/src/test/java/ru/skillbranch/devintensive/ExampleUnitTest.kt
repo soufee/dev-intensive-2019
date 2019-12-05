@@ -1,8 +1,5 @@
 package ru.skillbranch.devintensive
 
-import add
-import format
-import humanizeDiff
 import org.junit.Test
 
 import org.junit.Assert.*
