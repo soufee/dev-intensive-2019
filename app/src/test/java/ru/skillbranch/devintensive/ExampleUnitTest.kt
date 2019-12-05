@@ -1,5 +1,8 @@
 package ru.skillbranch.devintensive
 
+import add
+import format
+import humanizeDiff
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -64,8 +67,8 @@ class ExampleUnitTest {
     @Test
     fun test_abstract_factoryg(){
         val user = User.makeUser("Pavel Durov")
-        val txtMEssage = BaseMessage.makeMessage(user, Chat("0"), payLoad = "any text message", type = "text")
-        val imgMEssage = BaseMessage.makeMessage(user, Chat("0"), payLoad = "any image url", type = "image")
+        val txtMEssage = BaseMessage.makeMessage(user, Chat("0"), payload = "any text message", type = "text")
+        val imgMEssage = BaseMessage.makeMessage(user, Chat("0"), payload = "any image url", type = "image")
 
         println(txtMEssage.formatMessage())
         println(imgMEssage.formatMessage())
