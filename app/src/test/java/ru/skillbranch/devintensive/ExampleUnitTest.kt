@@ -118,6 +118,7 @@ class ExampleUnitTest {
         println(Utils.transliteration("Зарина", "_"))
         println(Utils.transliteration("Ирбек"))
         println(Utils.transliteration(""))
+        println(Utils.transliteration("[mi mi m]i"))
     }
 
     @Test
