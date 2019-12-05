@@ -155,18 +155,49 @@ class ExampleUnitTest {
         println("${after350Day.format()} ${after350Day.humanizeDiff()}") //350 дней назад
         val after370Day = Date().add(-370, TimeUnits.DAY)
         println("${after370Day.format()} ${after370Day.humanizeDiff()}") // более года назад
+
+        println(Date().add(-2, TimeUnits.HOUR).humanizeDiff()) //2 часа назад
+        println(Date().add(-5, TimeUnits.DAY).humanizeDiff()) //5 дней назад
+        println(Date().add(2, TimeUnits.MINUTE).humanizeDiff()) //через 2 минуты
+        println(Date().add(7, TimeUnits.DAY).humanizeDiff()) //через 7 дней
+        println(Date().add(-400, TimeUnits.DAY).humanizeDiff()) //более года назад
+        println(Date().add(400, TimeUnits.DAY).humanizeDiff()) //более чем через год
     }
-//
-//    @Test
-//    fun stripHtml_test(){
-//        println("""<p class="title">Образовательное IT-сообщество Skill Branch</p>""".stripHtml())
-//        println("<p>Образовательное       IT-сообщество Skill Branch</p>".stripHtml())
-//    }
+
+    @Test
+    fun plural_test(){
+        println(TimeUnits.SECOND.plural(1)) //1 секунду
+        println(TimeUnits.MINUTE.plural(4)) //4 минуты
+        println(TimeUnits.HOUR.plural(19)) //19 часов
+        println(TimeUnits.DAY.plural(222)) //222 дня
+    }
+
+
+    @Test
+    fun stripHtml_test(){
+        println("""<p class="title">Образовательное IT-сообщество Skill Branch</p>""".stripHtml())
+        println("<p>Образовательное       IT-сообщество Skill Branch</p>".stripHtml())
+    }
 
     @Test
     fun truncate_test(){
         println("Bender Bending Rodriguez — дословно «Сгибальщик Сгибающий Родригес»".truncate()) //Bender Bending R...
         println("Bender Bending Rodriguez — дословно «Сгибальщик Сгибающий Родригес»".truncate(15)) //Bender Bending...
         println("A     ".truncate(3)) //A
+    }
+
+    @Test
+    fun builder_test(){
+        val buildUser = User.Builder().id("1")
+            .firstName("sdsad")
+            .lastName("dfgd")
+            .avatar("")
+            .rating(1)
+            .respect(0)
+            .lastVisit(Date().add(-1, TimeUnits.DAY))
+            .isOnline(false)
+            .build()
+
+        println(buildUser)
     }
 }
