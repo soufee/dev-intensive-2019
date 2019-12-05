@@ -16,7 +16,7 @@ object Utils {
 
     fun parseFullName(fullName: String?): Pair<String?, String?> {
         if (fullName == null || "".equals(fullName) || " ".equals(fullName)) return null to null else {
-            val parts: List<String>? = fullName?.split(" ")
+            val parts: List<String>? = fullName.split(" ")
             val firstName = parts?.getOrNull(0)
             val lastName = parts?.getOrNull(1)
             return firstName to lastName
@@ -43,11 +43,10 @@ object Utils {
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
-        var initials: String? = null;
-        if (!firstName?.trim().isNullOrBlank() && !lastName?.trim().isNullOrBlank())
-            initials = "${firstName?.get(0)?.toUpperCase()}${lastName?.get(0)?.toUpperCase()}"
-        else if (!firstName.isNullOrBlank() && !firstName.isEmpty())
-            initials = "${firstName.get(0).toUpperCase()}"
-        return initials
+        val name = firstName.orEmpty().trim().getOrNull(0)?.toUpperCase()
+        val surname = lastName.orEmpty().trim().getOrNull(0)?.toUpperCase()
+        val firstInit = name?.toString() ?: ""
+        val secondInit = surname?.toString() ?: ""
+        return "$firstInit$secondInit".ifEmpty { null }
     }
 }
