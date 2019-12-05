@@ -6,7 +6,7 @@ import humanizeDiff
 import org.junit.Test
 
 import org.junit.Assert.*
-import ru.skillbranch.devintensive.extentions.*
+import ru.skillbranch.devintensive.extensions.*
 import ru.skillbranch.devintensive.models.*
 import ru.skillbranch.devintensive.utils.Utils
 import java.util.*

@@ -1,4 +1,4 @@
-package ru.skillbranch.devintensive.extentions
+package ru.skillbranch.devintensive.extensions
 
 import humanizeDiff
 import ru.skillbranch.devintensive.models.User
